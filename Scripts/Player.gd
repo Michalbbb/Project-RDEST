@@ -39,6 +39,9 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		if Input.is_action_pressed("sprint") and is_on_floor():
+			velocity.x = 2 * velocity.x
+			velocity.z = 2 * velocity.z
 	else:
 		velocity.x = 0.0 #move_toward(velocity.x, 0, SPEED)
 		velocity.z = 0.0 #move_toward(velocity.z, 0, SPEED)

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://56xt2mh7e3dl"]
+
+[ext_resource type="Shader" uid="uid://jxxcldnie74t" path="res://Shaders/water.tres" id="1_6511n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggy3h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpw2u"]
+render_priority = 0
+shader = ExtResource("1_6511n")
+shader_parameter/ColorParameter = Color(0, 0.266667, 0.533333, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8np4g"]
+material = SubResource("ShaderMaterial_fpw2u")
+size = Vector2(10, 10)
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Water" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_ggy3h")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.959408, 0.282023, 0, -0.282023, 0.959408, -0.07157, 1.3263, 3.8764)
+fov = 97.915
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_8np4g")

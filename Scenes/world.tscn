@@ -47,7 +47,6 @@ size = Vector3(4.3132, 0, 100)
 material = SubResource("StandardMaterial3D_kqhbg")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_uw6yf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]

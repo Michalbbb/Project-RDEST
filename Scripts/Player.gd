@@ -22,13 +22,16 @@ func _unhandled_input(event):
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		#print(rad_to_deg(head.get_global_position().angle_to(surface.get_global_position())))
 		#if rad_to_deg(camera.get_position().angle_to(surface.get_position())) > 90:
-			#print("dupa")
-			
+			#print("test")
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+
+	# Quitting game
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():

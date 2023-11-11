@@ -7,11 +7,12 @@ const SENSITIVITY = 0.001
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
 @onready var head = $Head
 #@onready var camera = $Head/SpringArm3D/Camera3D
 @onready var player = $"."
 #@onready var surface = $"../CSGBox3D"						
-
+@onready var anim_tree = $CollisionShape3D/PhMainHero2/AnimationTree
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -50,5 +51,5 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0.0 #move_toward(velocity.x, 0, SPEED)
 		velocity.z = 0.0 #move_toward(velocity.z, 0, SPEED)
-
+	anim_tree.set("parameters/blend_position",velocity.length()/SPEED)
 	move_and_slide()

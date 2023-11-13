@@ -4,13 +4,13 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_ggy3h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpw2u"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxfne"]
 render_priority = 0
 shader = ExtResource("1_6511n")
 shader_parameter/ColorParameter = Color(0, 0.266667, 0.533333, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8np4g"]
-material = SubResource("ShaderMaterial_fpw2u")
+material = SubResource("ShaderMaterial_oxfne")
 size = Vector2(10, 10)
 subdivide_width = 20
 subdivide_depth = 20

@@ -4206,16 +4206,16 @@ _data = {
 "rigAction_001": SubResource("Animation_fucr4")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ht52w"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rpc37"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dt4i0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5vkf7"]
 animation = &"Run"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_lgbgo"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_ht52w")
+blend_point_0/node = SubResource("AnimationNodeAnimation_rpc37")
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_dt4i0")
+blend_point_1/node = SubResource("AnimationNodeAnimation_5vkf7")
 blend_point_1/pos = 1.0
 min_space = 0.0
 

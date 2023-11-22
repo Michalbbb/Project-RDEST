@@ -1,12 +1,10 @@
 extends CharacterBody3D
 
-
-const SPEED = 50.0
-const JUMP_VELOCITY = 40.5
+const SPEED = 50.0 # 5.0 default
+const JUMP_VELOCITY = 40.5 #4.5 default
 const SENSITIVITY = 0.001
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
-
 
 @onready var head = $Head
 @onready var player = $"."
@@ -37,12 +35,12 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	
 	# Reset character position
 	if player.position.y <= ground_level[1]:
 		player.position.x = 0
 		player.position.y = 0
 		player.position.z = 0
-		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

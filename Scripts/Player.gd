@@ -1,18 +1,18 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 50.0
+const JUMP_VELOCITY = 40.5
 const SENSITIVITY = 0.001
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 @onready var head = $Head
-#@onready var camera = $Head/SpringArm3D/Camera3D
 @onready var player = $"."
-#@onready var surface = $"../CSGBox3D"						
 @onready var anim_tree = $CollisionShape3D/PhMainHero2/AnimationTree
+#@onready var minimap_border = $"../GUI/SubViewportContainer/Minimap_border"
+
 #ground_level 
 var ground_level = [0,0]
 func _ready():
@@ -22,9 +22,8 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_x(-event.relative.y * SENSITIVITY)
 		player.rotate_y(-event.relative.x * SENSITIVITY)
-		#print(rad_to_deg(head.get_global_position().angle_to(surface.get_global_position())))
-		#if rad_to_deg(camera.get_position().angle_to(surface.get_position())) > 90:
-			#print("test")
+		#minimap_border.rotate(-event.relative.x * SENSITIVITY)
+
 
 func _physics_process(delta):
 	# Add the gravity.

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4onlwad1mpyu"
-path="res://.godot/imported/minimap_border.png-edf2907ca64a7e509ecb9d22977dfb20.ctex"
+uid="uid://dbhgax13a34v1"
+path="res://.godot/imported/minimap_square_border.png-ee45bbc194d4319c8df05e15c896660b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/minimap_border.png"
-dest_files=["res://.godot/imported/minimap_border.png-edf2907ca64a7e509ecb9d22977dfb20.ctex"]
+source_file="res://Textures/minimap_square_border.png"
+dest_files=["res://.godot/imported/minimap_square_border.png-ee45bbc194d4319c8df05e15c896660b.ctex"]
 
 [params]
 

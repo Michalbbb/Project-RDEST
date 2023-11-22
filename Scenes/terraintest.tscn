@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cqfunkhuihebh"]
+[gd_scene load_steps=25 format=3 uid="uid://cqfunkhuihebh"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iya04"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="2_8yvtl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Animation" uid="uid://j087cpbl4ufq" path="res://Animations/Idle.tres" id="8_mdgie"]
 [ext_resource type="Texture2D" uid="uid://cdifjm8b5yreo" path="res://Textures/minimap_arrow.png" id="9_0v00m"]
 [ext_resource type="Animation" uid="uid://ld0xoivkpley" path="res://Animations/Run.tres" id="9_iksvc"]
+[ext_resource type="Texture2D" uid="uid://dbhgax13a34v1" path="res://Textures/minimap_square_border.png" id="10_ad7qi"]
 
 [sub_resource type="Resource" id="Resource_7j4sr"]
 script = ExtResource("3_8yeny")
@@ -4333,3 +4334,8 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -0.150847, 0.988557, 0, -0.988557, -0.150847, -572.262, 323.829, -102.401)
 current = true
 size = 78.295
+
+[node name="Minimap_border" type="Sprite2D" parent="GUI/SubViewportContainer"]
+position = Vector2(200, 200)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_ad7qi")

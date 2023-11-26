@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfef4txa8f3er"]
+
+[ext_resource type="Script" path="res://Res.gd" id="1_b13cy"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b13cy")
+
+[node name="ResolutionSize" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 378.0
+offset_right = 1641.0
+offset_bottom = 442.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1009.0
+offset_right = 277.0
+offset_bottom = 1074.0
+text = "Back"
+
+[node name="DisplayMode" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 527.0
+offset_right = 1642.0
+offset_bottom = 598.0
+
+[node name="Mode" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 512.0
+offset_right = 668.0
+offset_bottom = 690.0
+theme_override_font_sizes/normal_font_size = 72
+text = "DisplayMode
+"
+
+[node name="Resolution" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 357.0
+offset_right = 698.0
+offset_bottom = 456.0
+theme_override_font_sizes/normal_font_size = 72
+text = "Resolution"
+fit_content = true
+
+[connection signal="item_selected" from="ResolutionSize" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="DisplayMode" to="." method="_on_display_mode_item_selected"]

@@ -44,6 +44,22 @@ layout_mode = 2
 text = "Exit
 "
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.494
+anchor_top = 0.284
+anchor_right = 0.494
+anchor_bottom = 0.284
+offset_left = -127.36
+offset_top = -54.72
+offset_right = 127.64
+offset_bottom = 55.28
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center]RDEST[/center]
+"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

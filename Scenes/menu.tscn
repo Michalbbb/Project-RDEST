@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://baihkj513g1yu"]
+[gd_scene load_steps=3 format=3 uid="uid://baihkj513g1yu"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lbu04"]
+[ext_resource type="Texture2D" uid="uid://ctp84nwmre6q1" path="res://Images/MenuImage.png" id="2_dibkx"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -15,6 +16,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lbu04")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -354.0
+offset_top = -228.0
+offset_right = 354.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dibkx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -22,25 +38,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -185.992
-offset_top = -81.0
-offset_right = 142.008
-offset_bottom = 35.0
+offset_left = -404.0
+offset_top = -75.0
+offset_right = 407.0
+offset_bottom = 349.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 72
 text = "Play
 "
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 72
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 72
 text = "Exit
 "
 
@@ -51,11 +70,12 @@ anchor_left = 0.494
 anchor_top = 0.284
 anchor_right = 0.494
 anchor_bottom = 0.284
-offset_left = -127.36
-offset_top = -54.72
-offset_right = 127.64
-offset_bottom = 55.28
-theme_override_font_sizes/normal_font_size = 72
+offset_left = -477.12
+offset_top = -229.72
+offset_right = 487.88
+offset_bottom = -55.72
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 144
 bbcode_enabled = true
 text = "[center]RDEST[/center]
 "

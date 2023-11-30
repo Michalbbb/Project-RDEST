@@ -4241,7 +4241,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_dt4i0")
 blend_point_1/pos = 1.0
 min_space = 0.0
 
-[sub_resource type="Resource" id="Resource_k4rhq"]
+[sub_resource type="Resource" id="Resource_besia"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -4250,7 +4250,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_lp70c"]
+[sub_resource type="Resource" id="Resource_01s3a"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -4261,7 +4261,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_yr0h3"]
+[sub_resource type="Resource" id="Resource_q66ie"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -4273,7 +4273,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_rnpw3"]
+[sub_resource type="Resource" id="Resource_hppla"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -4289,7 +4289,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ffbus"]
+[sub_resource type="Resource" id="Resource_7dxyu"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -4305,9 +4305,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4y56u"]
+[sub_resource type="Resource" id="Resource_cx860"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_k4rhq"), SubResource("Resource_lp70c"), SubResource("Resource_yr0h3"), SubResource("Resource_rnpw3"), SubResource("Resource_ffbus")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_besia"), SubResource("Resource_01s3a"), SubResource("Resource_q66ie"), SubResource("Resource_hppla"), SubResource("Resource_7dxyu")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -4425,7 +4425,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_4y56u")
+modifier_stack = SubResource("Resource_cx860")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 

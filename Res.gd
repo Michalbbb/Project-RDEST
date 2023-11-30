@@ -8,9 +8,6 @@ var resolutions=[Vector2i(1280,720),Vector2i(1440,1080),Vector2i(1600,900),Vecto
 func _ready():
 	add_items_resolution()
 	add_items_display_mode()
-	var vw_size=get_viewport_rect().size
-	print("Viewport Width: ", vw_size.x)
-	print("Viewport Height: ", vw_size.y)
 
 func add_items_resolution():
 	drop_down_menu.add_item("1280x720")

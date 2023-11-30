@@ -28,9 +28,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Quitting game
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+	# menu
+	if Input.is_action_just_pressed("menu"):
+		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():

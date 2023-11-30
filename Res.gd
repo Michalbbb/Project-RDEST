@@ -47,3 +47,17 @@ func _on_display_mode_item_selected(index):
 		3:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+
+
+func _on_shadow_button_pressed():
+	var thisButton=$ShadowButton;
+	if Global.shadow==0 :
+		Global.shadow = 1
+		thisButton.text="ENABLED"
+	else:
+		Global.shadow=0
+		thisButton.text="DISABLED"
+		
+		
+		
+	

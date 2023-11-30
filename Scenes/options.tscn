@@ -15,10 +15,10 @@ script = ExtResource("1_b13cy")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.137374
-anchor_top = -0.162037
-anchor_right = 1.13737
-anchor_bottom = 0.837963
+anchor_left = 0.120707
+anchor_top = -0.189815
+anchor_right = 1.12071
+anchor_bottom = 0.810185
 offset_left = -354.0
 offset_top = -228.0
 offset_right = 354.0
@@ -52,6 +52,7 @@ theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 72
+alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -77,6 +78,8 @@ theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 72
+alignment = 1
+clip_text = true
 
 [node name="Mode" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -103,6 +106,42 @@ theme_override_font_sizes/normal_font_size = 72
 text = "Resolution"
 fit_content = true
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.082
+anchor_bottom = 0.225
+offset_left = 175.0
+offset_top = 733.0
+offset_right = 506.64
+offset_bottom = 592.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Shadows"
+
+[node name="ShadowButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 729.0
+offset_right = 1658.0
+offset_bottom = 836.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "DISABLED"
+
 [connection signal="item_selected" from="ResolutionSize" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="item_selected" from="DisplayMode" to="." method="_on_display_mode_item_selected"]
+[connection signal="pressed" from="ShadowButton" to="." method="_on_shadow_button_pressed"]

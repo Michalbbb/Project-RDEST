@@ -36,7 +36,9 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
+	var dirLight=$"../WorldEnvironment/DirectionalLight3D"
+	if Global.shadow == 1: 
+		dirLight.shadow_enabled=true
 	# Reset character position
 	if player.position.y <= ground_level[1]:
 		player.position.x = 0

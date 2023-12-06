@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cqfunkhuihebh"]
+[gd_scene load_steps=42 format=3 uid="uid://cqfunkhuihebh"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iya04"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="2_8yvtl"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="17_51s47"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="18_5xqyp"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="19_kews8"]
+[ext_resource type="PackedScene" uid="uid://ci38ni5k7uob7" path="res://Scenes/HUD.tscn" id="20_w5has"]
 
 [sub_resource type="Resource" id="Resource_7j4sr"]
 script = ExtResource("3_8yeny")
@@ -4241,7 +4242,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_dt4i0")
 blend_point_1/pos = 1.0
 min_space = 0.0
 
-[sub_resource type="Resource" id="Resource_x4cc1"]
+[sub_resource type="Resource" id="Resource_8agne"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -4250,7 +4251,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_hjetr"]
+[sub_resource type="Resource" id="Resource_q2fkp"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -4261,7 +4262,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_j2lci"]
+[sub_resource type="Resource" id="Resource_6p4wo"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -4273,7 +4274,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_hry5j"]
+[sub_resource type="Resource" id="Resource_cnns6"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -4289,7 +4290,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_wr1ma"]
+[sub_resource type="Resource" id="Resource_von04"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -4305,9 +4306,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_iw2b1"]
+[sub_resource type="Resource" id="Resource_1y3ck"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_x4cc1"), SubResource("Resource_hjetr"), SubResource("Resource_j2lci"), SubResource("Resource_hry5j"), SubResource("Resource_wr1ma")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8agne"), SubResource("Resource_q2fkp"), SubResource("Resource_6p4wo"), SubResource("Resource_cnns6"), SubResource("Resource_von04")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -4394,10 +4395,10 @@ custom_minimum_size = Vector2(300, 300)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -448.0
-offset_right = 450.0
-offset_bottom = -48.0
+offset_left = 1571.0
+offset_top = -1070.0
+offset_right = 1971.0
+offset_bottom = -670.0
 grow_vertical = 0
 
 [node name="Minimap_arrow" type="Sprite2D" parent="GUI/SubViewportContainer"]
@@ -4425,7 +4426,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_iw2b1")
+modifier_stack = SubResource("Resource_1y3ck")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -4438,3 +4439,7 @@ path = "res://addons/proton_scatter/demos/assets/pine_tree.tscn"
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 567.496, -137.023, -128.755)
 script = ExtResource("18_5xqyp")
 shape = SubResource("Resource_g8bsm")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Node2D" parent="UI" instance=ExtResource("20_w5has")]

@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 50.0 # 5.0 default
+const SPEED = 5.0 # 5.0 default
 const JUMP_VELOCITY = 40.5 #4.5 default
 const SENSITIVITY = 0.001
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -11,6 +11,9 @@ var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var anim_tree = $CollisionShape3D/PhMainHero2/AnimationTree
 #@onready var minimap_border = $"../GUI/SubViewportContainer/Minimap_border"
 
+var captured=1;
+var lastSpeedX = 0;
+var lastSpeedZ = 0;
 #ground_level 
 var ground_level = [0,0]
 func _ready():
@@ -28,12 +31,22 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
+
 	# menu
 	if Input.is_action_just_pressed("menu"):
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	# Handle Jump.
+	#Free or capture mouse
+	if Input.is_action_just_pressed("ChangeMouseStance"):
+		if captured==1: 
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			captured=0;
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			captured=1;
+	# Handle Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	var dirLight=$"../WorldEnvironment/DirectionalLight3D"
@@ -44,7 +57,6 @@ func _physics_process(delta):
 		player.position.x = 0
 		player.position.y = 0
 		player.position.z = 0
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
@@ -52,11 +64,22 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if Input.is_action_pressed("sprint") and is_on_floor():
-			velocity.x = 2 * velocity.x
-			velocity.z = 2 * velocity.z
+		if Input.is_action_pressed("sprint"):
+			if Global.currentStamina > 0 :
+				Global.currentStamina-=20*delta
+				velocity.x = 10 * velocity.x
+				velocity.z = 10 * velocity.z
+			
 	else:
 		velocity.x = 0.0 #move_toward(velocity.x, 0, SPEED)
 		velocity.z = 0.0 #move_toward(velocity.z, 0, SPEED)
+	if !Input.is_action_pressed("sprint") :
+		Global.currentStamina+=20*delta*Global.staminaRegenPerSec*Global.increasedStaminaRecoveryRate;
+		if Global.currentStamina>Global.maxStamina: Global.currentStamina=Global.maxStamina
+	if !is_on_floor():
+		velocity.x=lastSpeedX
+		velocity.z=lastSpeedZ
+	lastSpeedX=velocity.x;
+	lastSpeedZ=velocity.z;
 	anim_tree.set("parameters/blend_position",velocity.length()/SPEED)
 	move_and_slide()

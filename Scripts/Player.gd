@@ -20,7 +20,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and captured==1:
 		head.rotate_x(-event.relative.y * SENSITIVITY)
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		#minimap_border.rotate(-event.relative.x * SENSITIVITY)

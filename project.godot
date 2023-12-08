@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
+[gui]
+
+timers/tooltip_delay_sec=0.0
+
 [input]
 
 up={

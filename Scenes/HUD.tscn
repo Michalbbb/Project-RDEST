@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://ci38ni5k7uob7"]
+[gd_scene load_steps=12 format=3 uid="uid://ci38ni5k7uob7"]
 
-[ext_resource type="Texture2D" uid="uid://bqagirq6t35f3" path="res://Images/UnderBar.png" id="1_3f177"]
 [ext_resource type="Script" path="res://Scenes/HUD.gd" id="1_mntu4"]
+[ext_resource type="Texture2D" uid="uid://dorf2ilir8tdk" path="res://Images/UnderBarST.png" id="2_e4gd5"]
 [ext_resource type="Texture2D" uid="uid://dab5jl6pblfrk" path="res://Images/Bar.png" id="2_g5kt5"]
 [ext_resource type="Texture2D" uid="uid://col258uusr1my" path="res://Images/StaminaBar.png" id="3_0s1ys"]
 [ext_resource type="Texture2D" uid="uid://pvs0k8vpvpb4" path="res://Images/EquipmentImg.jpg" id="4_ggxo6"]
 [ext_resource type="Texture2D" uid="uid://cxvc5rkd2fdxo" path="res://Images/EquipmentImgNH.jpg" id="4_sg2hv"]
 [ext_resource type="Texture2D" uid="uid://jxqtjh1yfqjf" path="res://Images/QuestImg.jpg" id="6_utldh"]
+[ext_resource type="Texture2D" uid="uid://vedk068w3pod" path="res://Images/UnderBarHP.png" id="6_vt4tb"]
 [ext_resource type="Texture2D" uid="uid://buupmxrh6427v" path="res://Images/StatsImg.jpg" id="7_2bo5u"]
 [ext_resource type="Texture2D" uid="uid://dy2kayh8o3ltx" path="res://Images/QuestImgNH.jpg" id="7_ejhqb"]
 [ext_resource type="Texture2D" uid="uid://b8awk8awqos2r" path="res://Images/StatsImgNH.jpg" id="9_x4v3s"]
@@ -23,10 +24,11 @@ offset_right = 649.0
 offset_bottom = 196.0
 value = 100.0
 exp_edit = true
-texture_under = ExtResource("1_3f177")
+texture_under = ExtResource("2_e4gd5")
 texture_progress = ExtResource("3_0s1ys")
 
 [node name="StaminaLabel" type="Label" parent="StaminaBar"]
+layout_mode = 0
 offset_top = 1.0
 offset_right = 600.0
 offset_bottom = 80.0
@@ -35,11 +37,11 @@ offset_bottom = 80.0
 autostart = true
 
 [node name="TextureButton" type="TextureButton" parent="."]
-anchors_preset = -1
 offset_left = 1748.0
 offset_top = 957.0
 offset_right = 1979.0
 offset_bottom = 1083.0
+tooltip_text = "Equipment"
 toggle_mode = true
 texture_normal = ExtResource("4_sg2hv")
 texture_pressed = ExtResource("4_ggxo6")
@@ -53,10 +55,8 @@ offset_top = 9.0
 offset_right = 652.0
 offset_bottom = 89.0
 value = 100.0
-texture_under = ExtResource("1_3f177")
+texture_under = ExtResource("6_vt4tb")
 texture_progress = ExtResource("2_g5kt5")
-tint_under = Color(0, 0, 0, 1)
-tint_progress = Color(1, 0, 0, 1)
 
 [node name="HpLabel" type="Label" parent="HpBar"]
 layout_mode = 0
@@ -69,11 +69,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton2" type="TextureButton" parent="."]
-anchors_preset = -1
 offset_left = 1510.0
 offset_top = 959.0
 offset_right = 1724.0
-offset_bottom = 1116.0
+offset_bottom = 1082.0
+tooltip_text = "Quests"
 toggle_mode = true
 texture_normal = ExtResource("7_ejhqb")
 texture_pressed = ExtResource("6_utldh")
@@ -82,11 +82,11 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="TextureButton3" type="TextureButton" parent="."]
-anchors_preset = -1
 offset_left = 1275.0
 offset_top = 958.0
 offset_right = 1486.0
 offset_bottom = 1081.0
+tooltip_text = "Character"
 toggle_mode = true
 texture_normal = ExtResource("9_x4v3s")
 texture_pressed = ExtResource("7_2bo5u")

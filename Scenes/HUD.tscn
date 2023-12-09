@@ -94,4 +94,31 @@ texture_hover = ExtResource("7_2bo5u")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="InventoryRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 388.0
+offset_top = 194.0
+offset_right = 1732.0
+offset_bottom = 962.0
+texture = ExtResource("4_sg2hv")
+
+[node name="JournalRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 388.0
+offset_top = 198.0
+offset_right = 1732.0
+offset_bottom = 960.0
+texture = ExtResource("7_ejhqb")
+
+[node name="CharacterRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 1740.0
+offset_bottom = 968.0
+texture = ExtResource("9_x4v3s")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_3_pressed"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsrgtpvjmquu7"]
+
+[ext_resource type="Script" path="res://Props/Sign/Sign.gd" id="1_5laa4"]
+[ext_resource type="PackedScene" uid="uid://wjt8cmlu4x6u" path="res://Systems/Interaction/Interactable.tscn" id="1_tmcpm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_42pb3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_attle"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pjs8m"]
+
+[node name="Sign" type="Node3D"]
+script = ExtResource("1_5laa4")
+
+[node name="Sign" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_42pb3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign"]
+shape = SubResource("BoxShape3D_attle")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sign/CollisionShape3D"]
+mesh = SubResource("BoxMesh_pjs8m")
+
+[node name="Interactable" parent="." instance=ExtResource("1_tmcpm")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+shape = SubResource("BoxShape3D_attle")
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Interactable"]

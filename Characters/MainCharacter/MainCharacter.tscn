@@ -4207,7 +4207,6 @@ size = Vector3(2, 2, 6)
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 floor_stop_on_slope = false
 script = ExtResource("1_fdk2p")
 

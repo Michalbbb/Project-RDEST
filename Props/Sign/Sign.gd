@@ -2,9 +2,10 @@ extends Node3D
 
 @onready var popup = $FastTravelWindow
 var is_popup_open = false
-
+@onready var this_position = position
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#print(this_position)
 	pass # Replace with function body.
 
 

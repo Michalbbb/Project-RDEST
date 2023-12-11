@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cqfunkhuihebh"]
+[gd_scene load_steps=46 format=3 uid="uid://cqfunkhuihebh"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iya04"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="2_8yvtl"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="19_kews8"]
 [ext_resource type="PackedScene" uid="uid://ci38ni5k7uob7" path="res://Scenes/HUD.tscn" id="20_w5has"]
 [ext_resource type="PackedScene" uid="uid://bmmqxd6nvqthn" path="res://Systems/Interaction/PlayerInteractor.tscn" id="22_tscgu"]
+[ext_resource type="Script" path="res://Props/Sign/FastTravelWindowWest.gd" id="23_64yml"]
 
 [sub_resource type="Resource" id="Resource_7j4sr"]
 script = ExtResource("3_8yeny")
@@ -49,7 +50,7 @@ sky_material = SubResource("PhysicalSkyMaterial_tbjrr")
 background_mode = 2
 sky = SubResource("Sky_figl5")
 
-[sub_resource type="Resource" id="Resource_mnbww"]
+[sub_resource type="Resource" id="Resource_2jivl"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -58,7 +59,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_ln031"]
+[sub_resource type="Resource" id="Resource_2262q"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -69,7 +70,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_u685e"]
+[sub_resource type="Resource" id="Resource_204ro"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -81,7 +82,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_oycdp"]
+[sub_resource type="Resource" id="Resource_yxhs0"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -97,7 +98,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_m05df"]
+[sub_resource type="Resource" id="Resource_etb05"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -113,9 +114,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xtdbd"]
+[sub_resource type="Resource" id="Resource_5arve"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_mnbww"), SubResource("Resource_ln031"), SubResource("Resource_u685e"), SubResource("Resource_oycdp"), SubResource("Resource_m05df")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_2jivl"), SubResource("Resource_2262q"), SubResource("Resource_204ro"), SubResource("Resource_yxhs0"), SubResource("Resource_etb05")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -4394,7 +4395,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_xtdbd")
+modifier_stack = SubResource("Resource_5arve")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -4458,6 +4459,9 @@ shape = SubResource("BoxShape3D_yebyy")
 [node name="WestSign" parent="." groups=["Player"] instance=ExtResource("17_144h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -493.53, 119.589, -426.156)
 
+[node name="FastTravelWindow" parent="WestSign" index="2"]
+script = ExtResource("23_64yml")
+
 [node name="ButtonWest" parent="WestSign/FastTravelWindow/GridContainer" index="1"]
 visible = false
 
@@ -4472,16 +4476,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 553.014, 76.3438, 441.588)
 
 [node name="ButtonNorth" parent="NorthSign/FastTravelWindow/GridContainer" index="0"]
 visible = false
-
-[connection signal="pressed" from="WestSign/FastTravelWindow/GridContainer/ButtonNorth" to="Player" method="_on_button_north_pressed"]
-[connection signal="pressed" from="WestSign/FastTravelWindow/GridContainer/ButtonWest" to="Player" method="_on_button_west_pressed"]
-[connection signal="pressed" from="WestSign/FastTravelWindow/GridContainer/ButtonEast" to="Player" method="_on_button_east_pressed"]
-[connection signal="pressed" from="EastSign/FastTravelWindow/GridContainer/ButtonNorth" to="Player" method="_on_button_north_pressed"]
-[connection signal="pressed" from="EastSign/FastTravelWindow/GridContainer/ButtonWest" to="Player" method="_on_button_west_pressed"]
-[connection signal="pressed" from="EastSign/FastTravelWindow/GridContainer/ButtonEast" to="Player" method="_on_button_east_pressed"]
-[connection signal="pressed" from="NorthSign/FastTravelWindow/GridContainer/ButtonNorth" to="Player" method="_on_button_north_pressed"]
-[connection signal="pressed" from="NorthSign/FastTravelWindow/GridContainer/ButtonWest" to="Player" method="_on_button_west_pressed"]
-[connection signal="pressed" from="NorthSign/FastTravelWindow/GridContainer/ButtonEast" to="Player" method="_on_button_east_pressed"]
 
 [editable path="Player/PlayerInteractor"]
 [editable path="WestSign"]

@@ -83,3 +83,18 @@ func _physics_process(delta):
 	lastSpeedZ=velocity.z;
 	anim_tree.set("parameters/blend_position",velocity.length()/SPEED)
 	move_and_slide()
+
+
+func _on_button_north_pressed():
+	self.position = Global.North
+	pass # Replace with function body.
+
+
+func _on_button_east_pressed():
+	self.position = Global.East
+	pass # Replace with function body.
+
+
+func _on_button_west_pressed():
+	self.position = Global.West
+	pass # Replace with function body.

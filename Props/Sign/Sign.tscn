@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsrgtpvjmquu7"]
+[gd_scene load_steps=6 format=3 uid="uid://dsrgtpvjmquu7"]
 
 [ext_resource type="Script" path="res://Props/Sign/Sign.gd" id="1_5laa4"]
 [ext_resource type="PackedScene" uid="uid://wjt8cmlu4x6u" path="res://Systems/Interaction/Interactable.tscn" id="1_tmcpm"]
-[ext_resource type="Script" path="res://Props/Sign/FastTravelDialogue.gd" id="3_qh4ge"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_42pb3"]
 
@@ -34,7 +33,22 @@ initial_position = 2
 size = Vector2i(500, 500)
 visible = false
 popup_window = true
-script = ExtResource("3_qh4ge")
+
+[node name="GridContainer" type="GridContainer" parent="FastTravelWindow"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonNorth" type="Button" parent="FastTravelWindow/GridContainer"]
+layout_mode = 2
+text = "North"
+
+[node name="ButtonWest" type="Button" parent="FastTravelWindow/GridContainer"]
+layout_mode = 2
+text = "West"
+
+[node name="ButtonEast" type="Button" parent="FastTravelWindow/GridContainer"]
+layout_mode = 2
+text = "East"
 
 [connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

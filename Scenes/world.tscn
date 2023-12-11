@@ -4250,9 +4250,11 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Player/CollisionShape3D/PhMainHero2"]
+libraries = {
+"": SubResource("AnimationLibrary_fb06n")
+}
 tree_root = SubResource("AnimationNodeBlendSpace1D_lgbgo")
 anim_player = NodePath("../AnimationPlayer2")
-active = true
 parameters/blend_position = 0
 
 [node name="Head" type="Node3D" parent="Player"]

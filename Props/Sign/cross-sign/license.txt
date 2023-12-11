@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cross-sign
+* source:	https://sketchfab.com/3d-models/cross-sign-61bc9e85e0da4fa6aad6ca8891e28a3b
+* author:	Thunder (https://sketchfab.com/thunderpwn)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cross-sign" (https://sketchfab.com/3d-models/cross-sign-61bc9e85e0da4fa6aad6ca8891e28a3b) by Thunder (https://sketchfab.com/thunderpwn) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)

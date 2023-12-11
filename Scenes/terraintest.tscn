@@ -49,7 +49,7 @@ sky_material = SubResource("PhysicalSkyMaterial_tbjrr")
 background_mode = 2
 sky = SubResource("Sky_figl5")
 
-[sub_resource type="Resource" id="Resource_mnbww"]
+[sub_resource type="Resource" id="Resource_j75i8"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -58,7 +58,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_ln031"]
+[sub_resource type="Resource" id="Resource_ujphg"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -69,7 +69,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_u685e"]
+[sub_resource type="Resource" id="Resource_wl5sg"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -81,7 +81,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_oycdp"]
+[sub_resource type="Resource" id="Resource_x3pkn"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -97,7 +97,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_m05df"]
+[sub_resource type="Resource" id="Resource_a8spg"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -113,9 +113,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xtdbd"]
+[sub_resource type="Resource" id="Resource_snsor"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_mnbww"), SubResource("Resource_ln031"), SubResource("Resource_u685e"), SubResource("Resource_oycdp"), SubResource("Resource_m05df")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_j75i8"), SubResource("Resource_ujphg"), SubResource("Resource_wl5sg"), SubResource("Resource_x3pkn"), SubResource("Resource_a8spg")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -4381,7 +4381,7 @@ size = Vector2i(400, 400)
 render_target_update_mode = 4
 
 [node name="Minimap_Camera3D" type="Camera3D" parent="GUI/SubViewportContainer/Minimap_SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -572.262, 326.118, -72.231)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -572.262, 316.473, -417.046)
 current = true
 size = 78.295
 
@@ -4394,7 +4394,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_xtdbd")
+modifier_stack = SubResource("Resource_snsor")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -4413,7 +4413,7 @@ shape = SubResource("Resource_g8bsm")
 [node name="Node2D" parent="UI" instance=ExtResource("20_w5has")]
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -572.262, 126.118, -72.231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -572.262, 116.473, -417.046)
 floor_stop_on_slope = false
 script = ExtResource("6_ukqqt")
 
@@ -4430,9 +4430,11 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Player/CollisionShape3D/PhMainHero2"]
+libraries = {
+"": SubResource("AnimationLibrary_fb06n")
+}
 tree_root = SubResource("AnimationNodeBlendSpace1D_vyk2a")
 anim_player = NodePath("../AnimationPlayer2")
-active = true
 parameters/blend_position = 0
 
 [node name="Head" type="Node3D" parent="Player"]
@@ -4456,19 +4458,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 shape = SubResource("BoxShape3D_yebyy")
 
 [node name="WestSign" parent="." groups=["Player"] instance=ExtResource("17_144h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -493.53, 119.589, -426.156)
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -493.53, 119.1, -426.156)
 
 [node name="ButtonWest" parent="WestSign/FastTravelWindow/GridContainer" index="1"]
 visible = false
 
 [node name="EastSign" parent="." groups=["Player"] instance=ExtResource("17_144h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -656.123, 93.2631, 261.566)
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -656.123, 92.5, 261.566)
 
 [node name="ButtonEast" parent="EastSign/FastTravelWindow/GridContainer" index="2"]
 visible = false
 
 [node name="NorthSign" parent="." groups=["Player"] instance=ExtResource("17_144h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 553.014, 76.3438, 441.588)
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 553.014, 76, 441.588)
 
 [node name="ButtonNorth" parent="NorthSign/FastTravelWindow/GridContainer" index="0"]
 visible = false

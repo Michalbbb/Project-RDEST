@@ -4,7 +4,7 @@ extends Node
 # ALl global variables should be here. You can access it by Global.varName 
 var chosenResolution = 3
 var chosenMode = 2
-var shadow = 0;
+var shadow = 1;
 var currentHp=50;
 var maxHp=100;
 var regenPerSec= 0.5;

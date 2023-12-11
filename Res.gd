@@ -4,7 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 @onready var drop_down_menu=$ResolutionSize
 @onready var ds_mode=$DisplayMode
-var resolutions=[Vector2i(1280,720),Vector2i(1440,1080),Vector2i(1600,900),Vector2i(1980,1080)]
+var resolutions=[Vector2i(1280,720),Vector2i(1440,1080),Vector2i(1600,900),Vector2i(1980,1080), Vector2i(3440, 1440)]
 func _ready():
 	add_items_resolution()
 	add_items_display_mode()
@@ -14,6 +14,7 @@ func add_items_resolution():
 	drop_down_menu.add_item("1440x1080")
 	drop_down_menu.add_item("1600x900")
 	drop_down_menu.add_item("1980x1080")
+	drop_down_menu.add_item("3440x1440")
 	drop_down_menu.selected=Global.chosenResolution
 func add_items_display_mode():
 	ds_mode.add_item("Window mode")
@@ -51,7 +52,7 @@ func _on_display_mode_item_selected(index):
 
 func _on_shadow_button_pressed():
 	var thisButton=$ShadowButton;
-	if Global.shadow==0 :
+	if Global.shadow == 0 :
 		Global.shadow = 1
 		thisButton.text="ENABLED"
 	else:

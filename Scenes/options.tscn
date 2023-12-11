@@ -139,7 +139,7 @@ theme_override_colors/icon_hover_pressed_color = Color(1, 1, 0, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 0, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 72
-text = "DISABLED"
+text = "ENABLED"
 
 [connection signal="item_selected" from="ResolutionSize" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

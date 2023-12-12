@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 5.0 # 5.0 default
-const JUMP_VELOCITY = 40.5 #4.5 default
+const JUMP_VELOCITY = 9 #4.5 default
 const SENSITIVITY = 0.001
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -10,7 +10,7 @@ var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var player = $"."
 @onready var anim_tree = $CollisionShape3D/PhMainHero2/AnimationTree
 #@onready var minimap_border = $"../GUI/SubViewportContainer/Minimap_border"
-
+@onready var HoodedNpcAnimation = $"../StaticBody3D/CollisionShape3D/HoodedNpc/AnimationPlayer2"
 var captured=1;
 var lastSpeedX = 0;
 var lastSpeedZ = 0;
@@ -18,6 +18,8 @@ var lastSpeedZ = 0;
 var ground_level = [0,0]
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	HoodedNpcAnimation.get_animation("Waiting")
+	HoodedNpcAnimation.play("Waiting")
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and captured==1:

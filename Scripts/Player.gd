@@ -28,18 +28,35 @@ func _unhandled_input(event):
 		#minimap_border.rotate(-event.relative.x * SENSITIVITY)
 
 
+func _check_proximity():
+	var Npc_list = get_tree().get_nodes_in_group("NPC")
+	for item in Npc_list:
+		var relativeX = item.position.x-player.position.x
+		var relativeZ = item.position.z-player.position.z
+		if abs(relativeX)< 21 and abs(relativeZ)<21:
+			var i=0
+			if relativeX>=0 and relativeZ>=0: i=-3
+			if relativeX<0 and relativeZ<0: i=1
+			if relativeX>=0 and relativeZ<0: i=-1
+			if relativeX<0 and relativeZ>=0: i=1.5
+			var vec=Vector3(0,i,0) # so far it seems that 0 - (-3 - +3) is full rotation and -3/+3 gives similar results
+			item.set_rotation(vec)
+
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
-
+	#Checks all npcs if player is close enough for them to turn in their direction
+	_check_proximity()
 	# menu
 	if Input.is_action_just_pressed("menu"):
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
+	if Input.is_action_just_pressed("TestingPurposeButton"):
+		print("You can test something here...")
 	#Free or capture mouse
 	if Input.is_action_just_pressed("ChangeMouseStance"):
 		if captured==1: 

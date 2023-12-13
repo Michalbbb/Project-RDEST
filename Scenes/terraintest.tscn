@@ -50,7 +50,7 @@ sky_material = SubResource("PhysicalSkyMaterial_tbjrr")
 background_mode = 2
 sky = SubResource("Sky_figl5")
 
-[sub_resource type="Resource" id="Resource_47gqv"]
+[sub_resource type="Resource" id="Resource_tsdrw"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -59,7 +59,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_g38o2"]
+[sub_resource type="Resource" id="Resource_66i5i"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -70,7 +70,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_wtg5d"]
+[sub_resource type="Resource" id="Resource_v2wya"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -82,7 +82,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_a555r"]
+[sub_resource type="Resource" id="Resource_4ydtb"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -98,7 +98,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_csb1u"]
+[sub_resource type="Resource" id="Resource_ma30h"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -114,9 +114,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_pb7f3"]
+[sub_resource type="Resource" id="Resource_xnx5h"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_47gqv"), SubResource("Resource_g38o2"), SubResource("Resource_wtg5d"), SubResource("Resource_a555r"), SubResource("Resource_csb1u")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_tsdrw"), SubResource("Resource_66i5i"), SubResource("Resource_v2wya"), SubResource("Resource_4ydtb"), SubResource("Resource_ma30h")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -6232,7 +6232,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_pb7f3")
+modifier_stack = SubResource("Resource_xnx5h")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -6295,33 +6295,36 @@ remote_path = NodePath("../../GUI/SubViewportContainer/Minimap_SubViewport/Minim
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 shape = SubResource("BoxShape3D_yebyy")
 
-[node name="WestSign" parent="." groups=["Player"] instance=ExtResource("17_144h5")]
+[node name="WestSign" parent="." groups=["Interactable", "Player"] instance=ExtResource("17_144h5")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -493.53, 119.1, -426.156)
+
+[node name="Interactable" parent="WestSign" index="0"]
+visible = false
 
 [node name="ButtonWest" parent="WestSign/FastTravelWindow/GridContainer" index="1"]
 visible = false
 
-[node name="EastSign" parent="." groups=["Player"] instance=ExtResource("17_144h5")]
+[node name="EastSign" parent="." groups=["Interactable", "Player"] instance=ExtResource("17_144h5")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -656.123, 92.5, 261.566)
 
 [node name="ButtonEast" parent="EastSign/FastTravelWindow/GridContainer" index="2"]
 visible = false
 
-[node name="NorthSign" parent="." groups=["Player"] instance=ExtResource("17_144h5")]
+[node name="NorthSign" parent="." groups=["Interactable", "Player"] instance=ExtResource("17_144h5")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 553.014, 76, 441.588)
 
 [node name="ButtonNorth" parent="NorthSign/FastTravelWindow/GridContainer" index="0"]
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["NPC"]]
+[node name="Hooded One" type="StaticBody3D" parent="." groups=["Interactable", "NPC"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 123.8, -434.886)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hooded One"]
 shape = SubResource("BoxShape3D_tipok")
 
-[node name="HoodedNpc" parent="StaticBody3D/CollisionShape3D" instance=ExtResource("23_jvmuk")]
+[node name="HoodedNpc" parent="Hooded One/CollisionShape3D" instance=ExtResource("23_jvmuk")]
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="StaticBody3D/CollisionShape3D/HoodedNpc"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Hooded One/CollisionShape3D/HoodedNpc"]
 libraries = {
 "": SubResource("AnimationLibrary_agiyf")
 }

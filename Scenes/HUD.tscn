@@ -118,6 +118,14 @@ offset_right = 1740.0
 offset_bottom = 968.0
 texture = ExtResource("9_x4v3s")
 
+[node name="InteractionTip" type="RichTextLabel" parent="."]
+offset_left = 701.0
+offset_top = 19.0
+offset_right = 1605.0
+offset_bottom = 143.0
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]

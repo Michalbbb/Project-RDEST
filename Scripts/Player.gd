@@ -5,13 +5,12 @@ const JUMP_VELOCITY = 9 #4.5 default
 const SENSITIVITY = 0.001
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
-
+@onready var tipAboutInteraction = $"../UI/Node2D/InteractionTip"
 @onready var head = $Head
 @onready var player = $"."
 @onready var anim_tree = $CollisionShape3D/PhMainHero2/AnimationTree
 #@onready var minimap_border = $"../GUI/SubViewportContainer/Minimap_border"
-@onready var HoodedNpcAnimation = $"../StaticBody3D/CollisionShape3D/HoodedNpc/AnimationPlayer2"
-var captured=1;
+@onready var HoodedNpcAnimation = $"../Hooded One/CollisionShape3D/HoodedNpc/AnimationPlayer2"
 var lastSpeedX = 0;
 var lastSpeedZ = 0;
 #ground_level 
@@ -20,9 +19,12 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	HoodedNpcAnimation.get_animation("Waiting")
 	HoodedNpcAnimation.play("Waiting")
+	tipAboutInteraction.text="CHUJ MOZE DZIAŁAM"
+	tipAboutInteraction.visible=true
+	Global.isMouseCaptured=true
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion and captured==1:
+	if event is InputEventMouseMotion and Global.isMouseCaptured:
 		head.rotate_x(-event.relative.y * SENSITIVITY)
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		#minimap_border.rotate(-event.relative.x * SENSITIVITY)
@@ -41,30 +43,41 @@ func _check_proximity():
 			if relativeX<0 and relativeZ>=0: i=1.5
 			var vec=Vector3(0,i,0) # so far it seems that 0 - (-3 - +3) is full rotation and -3/+3 gives similar results
 			item.set_rotation(vec)
-
-
+func _check_if_player_can_interact():
+	var int_list = get_tree().get_nodes_in_group("Interactable")
+	var canInteract=false
+	for item in int_list:
+		var x=player.position.x-item.position.x
+		var z=player.position.z-item.position.z
+		if abs(z)<5 and abs(x)<5 :
+			tipAboutInteraction.text="Click \"e\" to interact with "+item.name
+			canInteract=true
+			tipAboutInteraction.visible=true
+	if canInteract==false : tipAboutInteraction.visible=false
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	#Checks all npcs if player is close enough for them to turn in their direction
 	_check_proximity()
+	
+	_check_if_player_can_interact()
 	# menu
-	if Input.is_action_just_pressed("menu"):
+	if Input.is_action_just_pressed("menu") and Global.isGameScreenClear:
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if Input.is_action_just_pressed("TestingPurposeButton"):
-		print("You can test something here...")
+		print("...")
 	#Free or capture mouse
 	if Input.is_action_just_pressed("ChangeMouseStance"):
-		if captured==1: 
+		if Global.isMouseCaptured: 
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			captured=0;
+			Global.isMouseCaptured=false
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			captured=1;
+			Global.isMouseCaptured=true
 	# Handle Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

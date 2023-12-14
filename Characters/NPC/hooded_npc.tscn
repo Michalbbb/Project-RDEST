@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbouamjoh4ewm"]
+[gd_scene load_steps=5 format=3 uid="uid://dbouamjoh4ewm"]
 
 [ext_resource type="PackedScene" uid="uid://hbgjdsy7yvhi" path="res://GameModels/HoodedNpc.glb" id="1_linkg"]
+[ext_resource type="PackedScene" uid="uid://wjt8cmlu4x6u" path="res://Systems/Interaction/Interactable.tscn" id="2_eke81"]
+[ext_resource type="Script" path="res://Characters/NPC/hooded_npc.gd" id="2_ivsq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8l7om"]
+size = Vector3(1, 2.4032, 1)
 
 [node name="HoodedNpc" instance=ExtResource("1_linkg")]
+script = ExtResource("2_ivsq8")
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/8/rotation = Quaternion(0.258998, 0.878798, 0.134318, -0.377616)
@@ -41,3 +47,24 @@ bones/167/rotation = Quaternion(0.152696, -7.53899e-08, 3.10983e-08, 0.988273)
 bones/168/rotation = Quaternion(0.0179305, 0.772421, -0.580228, -0.257644)
 bones/170/rotation = Quaternion(0.0179303, 0.772421, -0.580228, -0.257643)
 bones/174/rotation = Quaternion(-0.146055, 0.00638058, 0.0431754, 0.988313)
+
+[node name="Interactable" parent="." index="85" instance=ExtResource("2_eke81")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.701599, 0)
+shape = SubResource("BoxShape3D_8l7om")
+
+[node name="QuestWindow" type="Window" parent="." index="86"]
+transparent_bg = true
+title = "Quest"
+initial_position = 2
+size = Vector2i(500, 500)
+visible = false
+popup_window = true
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+[connection signal="close_requested" from="QuestWindow" to="." method="_on_quest_window_close_requested"]
+
+[editable path="Interactable"]

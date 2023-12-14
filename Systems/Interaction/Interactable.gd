@@ -20,3 +20,7 @@ func _on_interacted(interactor):
 
 func _on_unfocused(interactor):
 	pass # Replace with function body.
+
+
+func _on_quest_window_close_requested():
+	pass # Replace with function body.

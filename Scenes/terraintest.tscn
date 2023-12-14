@@ -1,7 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://cqfunkhuihebh"]
+[gd_scene load_steps=55 format=3 uid="uid://cqfunkhuihebh"]
 
+[ext_resource type="Texture2D" uid="uid://buf87v0wdwpps" path="res://Images/handshake.png" id="1_7264j"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iya04"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="2_8yvtl"]
+[ext_resource type="Script" path="res://Scenes/SetDialog.gd" id="2_km4u4"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_8yeny"]
 [ext_resource type="Shader" uid="uid://jxxcldnie74t" path="res://Shaders/water.tres" id="4_ulyh7"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="6_ukqqt"]
@@ -23,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://ci38ni5k7uob7" path="res://Scenes/HUD.tscn" id="20_w5has"]
 [ext_resource type="PackedScene" uid="uid://bmmqxd6nvqthn" path="res://Systems/Interaction/PlayerInteractor.tscn" id="22_tscgu"]
 [ext_resource type="PackedScene" uid="uid://dbouamjoh4ewm" path="res://Characters/NPC/hooded_npc.tscn" id="23_jvmuk"]
+[ext_resource type="Script" path="res://Scenes/HoodedNpc.gd" id="23_meblh"]
+[ext_resource type="Script" path="res://Systems/Interaction/Interactable.gd" id="25_1j2fg"]
 
 [sub_resource type="Resource" id="Resource_7j4sr"]
 script = ExtResource("3_8yeny")
@@ -50,7 +54,7 @@ sky_material = SubResource("PhysicalSkyMaterial_tbjrr")
 background_mode = 2
 sky = SubResource("Sky_figl5")
 
-[sub_resource type="Resource" id="Resource_tsdrw"]
+[sub_resource type="Resource" id="Resource_fby7m"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -59,7 +63,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_66i5i"]
+[sub_resource type="Resource" id="Resource_liv48"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -70,7 +74,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_v2wya"]
+[sub_resource type="Resource" id="Resource_sbpp4"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -82,7 +86,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4ydtb"]
+[sub_resource type="Resource" id="Resource_03py6"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -98,7 +102,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ma30h"]
+[sub_resource type="Resource" id="Resource_oc0xq"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -114,9 +118,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xnx5h"]
+[sub_resource type="Resource" id="Resource_fu0u1"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_tsdrw"), SubResource("Resource_66i5i"), SubResource("Resource_v2wya"), SubResource("Resource_4ydtb"), SubResource("Resource_ma30h")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_fby7m"), SubResource("Resource_liv48"), SubResource("Resource_sbpp4"), SubResource("Resource_03py6"), SubResource("Resource_oc0xq")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -4320,6 +4324,8 @@ min_space = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_yebyy"]
 size = Vector3(2, 2, 6)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_svk4q"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_tipok"]
 
 [sub_resource type="Animation" id="Animation_8k1ja"]
@@ -6159,6 +6165,60 @@ _data = {
 
 [node name="Node3D" type="Node3D"]
 
+[node name="DialogWindow" type="TextureRect" parent="."]
+visible = false
+offset_left = 474.0
+offset_top = 250.0
+offset_right = 3162.0
+offset_bottom = 1786.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_7264j")
+script = ExtResource("2_km4u4")
+
+[node name="Title" type="Label" parent="DialogWindow"]
+layout_mode = 0
+offset_left = 84.9999
+offset_top = 55.0
+offset_right = 2585.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+
+[node name="Content" type="Label" parent="DialogWindow"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 200.0
+offset_right = 2585.0
+offset_bottom = 1060.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="OptionA" type="Button" parent="DialogWindow"]
+layout_mode = 0
+offset_left = 657.5
+offset_top = 1092.5
+offset_right = 1957.5
+offset_bottom = 1176.5
+theme_override_font_sizes/font_size = 55
+
+[node name="OptionB" type="Button" parent="DialogWindow"]
+layout_mode = 0
+offset_left = 657.5
+offset_top = 1232.5
+offset_right = 1957.5
+offset_bottom = 1316.5
+theme_override_font_sizes/font_size = 55
+
 [node name="HTerrain" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -292.705, 0)
 script = ExtResource("1_iya04")
@@ -6194,6 +6254,12 @@ environment = SubResource("Environment_be5tf")
 transform = Transform3D(-0.795152, -0.372768, -0.478306, -0.498804, -0.0464983, 0.865467, -0.344859, 0.926759, -0.148965, 0, 0, 0)
 
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Coordinates" type="Label" parent="GUI"]
+offset_left = 1851.0
+offset_top = 424.0
+offset_right = 2051.0
+offset_bottom = 464.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="GUI"]
 top_level = true
@@ -6232,7 +6298,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_xnx5h")
+modifier_stack = SubResource("Resource_fu0u1")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -6249,6 +6315,7 @@ shape = SubResource("Resource_g8bsm")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Node2D" parent="UI" instance=ExtResource("20_w5has")]
+position = Vector2(9, 4)
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -572.262, 116.473, -417.046)
@@ -6295,11 +6362,8 @@ remote_path = NodePath("../../GUI/SubViewportContainer/Minimap_SubViewport/Minim
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 shape = SubResource("BoxShape3D_yebyy")
 
-[node name="WestSign" parent="." groups=["Interactable", "Player"] instance=ExtResource("17_144h5")]
+[node name="WestSign" parent="." groups=["Interactable"] instance=ExtResource("17_144h5")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -493.53, 119.1, -426.156)
-
-[node name="Interactable" parent="WestSign" index="0"]
-visible = false
 
 [node name="ButtonWest" parent="WestSign/FastTravelWindow/GridContainer" index="1"]
 visible = false
@@ -6318,6 +6382,15 @@ visible = false
 
 [node name="Hooded One" type="StaticBody3D" parent="." groups=["Interactable", "NPC"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 123.8, -434.886)
+script = ExtResource("23_meblh")
+
+[node name="Interactable" type="Area3D" parent="Hooded One"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("25_1j2fg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hooded One/Interactable"]
+shape = SubResource("BoxShape3D_svk4q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hooded One"]
 shape = SubResource("BoxShape3D_tipok")
@@ -6329,6 +6402,8 @@ libraries = {
 "": SubResource("AnimationLibrary_agiyf")
 }
 
+[connection signal="pressed" from="DialogWindow/OptionA" to="DialogWindow" method="_on_option_a_pressed"]
+[connection signal="pressed" from="DialogWindow/OptionB" to="DialogWindow" method="_on_option_b_pressed"]
 [connection signal="pressed" from="WestSign/FastTravelWindow/GridContainer/ButtonNorth" to="Player" method="_on_button_north_pressed"]
 [connection signal="pressed" from="WestSign/FastTravelWindow/GridContainer/ButtonWest" to="Player" method="_on_button_west_pressed"]
 [connection signal="pressed" from="WestSign/FastTravelWindow/GridContainer/ButtonEast" to="Player" method="_on_button_east_pressed"]
@@ -6338,6 +6413,9 @@ libraries = {
 [connection signal="pressed" from="NorthSign/FastTravelWindow/GridContainer/ButtonNorth" to="Player" method="_on_button_north_pressed"]
 [connection signal="pressed" from="NorthSign/FastTravelWindow/GridContainer/ButtonWest" to="Player" method="_on_button_west_pressed"]
 [connection signal="pressed" from="NorthSign/FastTravelWindow/GridContainer/ButtonEast" to="Player" method="_on_button_east_pressed"]
+[connection signal="focused" from="Hooded One/Interactable" to="Hooded One" method="_on_interactable_focused"]
+[connection signal="interacted" from="Hooded One/Interactable" to="Hooded One" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Hooded One/Interactable" to="Hooded One" method="_on_interactable_unfocused"]
 
 [editable path="Player/PlayerInteractor"]
 [editable path="WestSign"]

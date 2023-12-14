@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("menu") and !Global.isGameScreenClear:
+	if Input.is_action_just_pressed("menu") and !Global.isGameScreenClear and is_popup_open:
 		_on_fast_travel_window_close_requested()
 
 # Called when object enters interactable distance

@@ -5,14 +5,14 @@ extends Node
 var chosenResolution = 3
 var chosenMode = 2
 var shadow = 1;
-var currentHp=50;
-var maxHp=100;
-var regenPerSec= 0.5;
+var currentHp=10;
+var maxHp=90;
+var regenPerSec= 0;
 var increasedLifeRecovery = 1.0;
 var regenPool=0.0;
-var currentStamina=100.0;
-var maxStamina=100.0;
-var staminaRegenPerSec = 1.5;
+var currentStamina=60.0;
+var maxStamina=60.0;
+var staminaRegenPerSec = 0.3;
 var increasedStaminaRecoveryRate=1.0;
 #Variables for sign positions
 #var NotWest = Main_map.get_tree().get_node("WestSign")
@@ -22,4 +22,7 @@ var North = Vector3(553.014,76.344,441.588)
 #Variables for GUI
 var isMouseCaptured = false
 var isGameScreenClear = true # it means there are no other window on screen that game and GUI
+var isDialogOpen = false
+#Variables to proceed story
+var hoodedNpcTakenMissions=0
 

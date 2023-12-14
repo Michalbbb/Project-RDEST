@@ -8,6 +8,7 @@ var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var tipAboutInteraction = $"../UI/Node2D/InteractionTip"
 @onready var head = $Head
 @onready var player = $"."
+@onready var coords = $"../GUI/Coordinates"
 @onready var anim_tree = $CollisionShape3D/PhMainHero2/AnimationTree
 #@onready var minimap_border = $"../GUI/SubViewportContainer/Minimap_border"
 @onready var HoodedNpcAnimation = $"../Hooded One/CollisionShape3D/HoodedNpc/AnimationPlayer2"
@@ -54,14 +55,16 @@ func _check_if_player_can_interact():
 			canInteract=true
 			tipAboutInteraction.visible=true
 	if canInteract==false : tipAboutInteraction.visible=false
+func _update_coords():
+	coords.text="(x,z)("+str(int(player.position.x))+","+str(int(player.position.z))+")"
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	#Checks all npcs if player is close enough for them to turn in their direction
 	_check_proximity()
-	
 	_check_if_player_can_interact()
+	_update_coords()
 	# menu
 	if Input.is_action_just_pressed("menu") and Global.isGameScreenClear:
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")

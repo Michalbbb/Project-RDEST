@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://0lde4gako7dq"]
+
+[ext_resource type="PackedScene" uid="uid://c6ut6guyno8cg" path="res://Characters/AI/slime.tscn" id="1_b4w4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6tv3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.524568, 0)
+shape = SubResource("BoxShape3D_t6tv3")
+
+[node name="Slime2" parent="RigidBody3D/CollisionShape3D" instance=ExtResource("1_b4w4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0857277, 0.0323982, 0.455467)

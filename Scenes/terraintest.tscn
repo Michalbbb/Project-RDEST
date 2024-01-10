@@ -56,7 +56,7 @@ sky_material = SubResource("PhysicalSkyMaterial_tbjrr")
 background_mode = 2
 sky = SubResource("Sky_figl5")
 
-[sub_resource type="Resource" id="Resource_j8ma1"]
+[sub_resource type="Resource" id="Resource_fkcfx"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -65,7 +65,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_p173j"]
+[sub_resource type="Resource" id="Resource_hgjuv"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -76,7 +76,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_mo1uo"]
+[sub_resource type="Resource" id="Resource_xjvw1"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -88,7 +88,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_h7a8s"]
+[sub_resource type="Resource" id="Resource_hdgpl"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -104,7 +104,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_jsg32"]
+[sub_resource type="Resource" id="Resource_gaj31"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -120,9 +120,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ttk8t"]
+[sub_resource type="Resource" id="Resource_wydmq"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_j8ma1"), SubResource("Resource_p173j"), SubResource("Resource_mo1uo"), SubResource("Resource_h7a8s"), SubResource("Resource_jsg32")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_fkcfx"), SubResource("Resource_hgjuv"), SubResource("Resource_xjvw1"), SubResource("Resource_hdgpl"), SubResource("Resource_gaj31")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -6300,7 +6300,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_ttk8t")
+modifier_stack = SubResource("Resource_wydmq")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -6315,6 +6315,10 @@ script = ExtResource("18_5xqyp")
 shape = SubResource("Resource_g8bsm")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inv_UI" parent="UI" instance=ExtResource("25_a354b")]
+top_level = true
+z_index = 1
 
 [node name="Node2D" parent="UI" instance=ExtResource("20_w5has")]
 position = Vector2(9, 4)
@@ -6364,8 +6368,6 @@ remote_path = NodePath("../../GUI/SubViewportContainer/Minimap_SubViewport/Minim
 [node name="CollisionShape3D" parent="Player/PlayerInteractor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 shape = SubResource("BoxShape3D_yebyy")
-
-[node name="Inv_UI" parent="Player" instance=ExtResource("25_a354b")]
 
 [node name="WestSign" parent="." groups=["Interactable"] instance=ExtResource("17_144h5")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -493.53, 119.1, -426.156)

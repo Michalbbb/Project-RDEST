@@ -14,11 +14,10 @@ func update_slots():
 		slots[i].update(inv.items[i])
 
 func _process(delta):
-	if Input.is_action_just_pressed("inventory"):
-		if is_open:
-			close()
-		else:
-			open()
+	if Global.EQoppened == true:
+		open()
+	else:
+		close()
 
 func open():
 	self.visible = true

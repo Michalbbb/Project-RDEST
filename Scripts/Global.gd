@@ -26,3 +26,4 @@ var isDialogOpen = false
 #Variables to proceed story
 var hoodedNpcTakenMissions=0
 
+var EQoppened = false

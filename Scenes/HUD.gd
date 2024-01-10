@@ -53,25 +53,21 @@ func _on_timer_timeout():
 
 
 
-
-
-
-
-
 func _on_texture_button_pressed():
 	
 	if k1 != false :
 		InventoryMenu.hide();
 		k1=false;
+		Global.EQoppened = false;
 	else :
+		####################
 		InventoryMenu.show();
+		Global.EQoppened = true;
 		JournalMenu.hide();
 		CharacterMenu.hide();
 		k1=true;
 		k2=false
 		k3=false
-
-
 
 
 func _on_texture_button_2_pressed():

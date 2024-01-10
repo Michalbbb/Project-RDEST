@@ -5,5 +5,6 @@
 
 [resource]
 script = ExtResource("1_e8f6w")
-name = "Sword"
+name = "sword"
 texture = ExtResource("2_nk8jk")
+edible = false

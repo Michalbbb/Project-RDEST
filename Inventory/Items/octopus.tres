@@ -5,5 +5,6 @@
 
 [resource]
 script = ExtResource("1_ku068")
-name = "Octopus"
+name = "octopus"
 texture = ExtResource("2_lt6x8")
+edible = true

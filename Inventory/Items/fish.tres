@@ -7,3 +7,4 @@
 script = ExtResource("1_peaey")
 name = "fish"
 texture = ExtResource("2_q54ps")
+edible = true

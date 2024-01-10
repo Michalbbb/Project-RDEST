@@ -5,6 +5,7 @@ const JUMP_VELOCITY = 9 #4.5 default
 const SENSITIVITY = 0.001
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
+
 @onready var tipAboutInteraction = $"../UI/Node2D/InteractionTip"
 @onready var head = $Head
 @onready var player = $"."
@@ -12,10 +13,15 @@ var gravity = 9.8 #ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var anim_tree = $CollisionShape3D/PhMainHero2/AnimationTree
 #@onready var minimap_border = $"../GUI/SubViewportContainer/Minimap_border"
 @onready var HoodedNpcAnimation = $"../Hooded One/CollisionShape3D/HoodedNpc/AnimationPlayer2"
+
 var lastSpeedX = 0;
 var lastSpeedZ = 0;
-#ground_level 
-var ground_level = [0,0]
+var ground_level = [0,0];
+
+@export var inv: Inv
+
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	HoodedNpcAnimation.get_animation("Waiting")

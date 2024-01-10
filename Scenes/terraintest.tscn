@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cqfunkhuihebh"]
+[gd_scene load_steps=57 format=3 uid="uid://cqfunkhuihebh"]
 
 [ext_resource type="Texture2D" uid="uid://buf87v0wdwpps" path="res://Images/handshake.png" id="1_7264j"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iya04"]
@@ -22,11 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://dsrgtpvjmquu7" path="res://Props/Sign/Sign.tscn" id="17_144h5"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="18_5xqyp"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="19_kews8"]
+[ext_resource type="Resource" uid="uid://dfy62eb6bxcly" path="res://Inventory/PlayerInv.tres" id="20_fol4f"]
 [ext_resource type="PackedScene" uid="uid://ci38ni5k7uob7" path="res://Scenes/HUD.tscn" id="20_w5has"]
 [ext_resource type="PackedScene" uid="uid://bmmqxd6nvqthn" path="res://Systems/Interaction/PlayerInteractor.tscn" id="22_tscgu"]
 [ext_resource type="PackedScene" uid="uid://dbouamjoh4ewm" path="res://Characters/NPC/hooded_npc.tscn" id="23_jvmuk"]
 [ext_resource type="Script" path="res://Scenes/HoodedNpc.gd" id="23_meblh"]
 [ext_resource type="Script" path="res://Systems/Interaction/Interactable.gd" id="25_1j2fg"]
+[ext_resource type="PackedScene" uid="uid://njwe1i3ltynh" path="res://Inventory/Inv_UI.tscn" id="25_a354b"]
 
 [sub_resource type="Resource" id="Resource_7j4sr"]
 script = ExtResource("3_8yeny")
@@ -54,7 +56,7 @@ sky_material = SubResource("PhysicalSkyMaterial_tbjrr")
 background_mode = 2
 sky = SubResource("Sky_figl5")
 
-[sub_resource type="Resource" id="Resource_klcx7"]
+[sub_resource type="Resource" id="Resource_j8ma1"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -63,7 +65,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_8ded7"]
+[sub_resource type="Resource" id="Resource_p173j"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -74,7 +76,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_p4lg0"]
+[sub_resource type="Resource" id="Resource_mo1uo"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -86,7 +88,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_et7yd"]
+[sub_resource type="Resource" id="Resource_h7a8s"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -102,7 +104,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_r55q6"]
+[sub_resource type="Resource" id="Resource_jsg32"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -118,9 +120,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4jq6x"]
+[sub_resource type="Resource" id="Resource_ttk8t"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_klcx7"), SubResource("Resource_8ded7"), SubResource("Resource_p4lg0"), SubResource("Resource_et7yd"), SubResource("Resource_r55q6")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_j8ma1"), SubResource("Resource_p173j"), SubResource("Resource_mo1uo"), SubResource("Resource_h7a8s"), SubResource("Resource_jsg32")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -6298,7 +6300,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_4jq6x")
+modifier_stack = SubResource("Resource_ttk8t")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -6321,6 +6323,7 @@ position = Vector2(9, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -572.262, 116.473, -417.046)
 floor_stop_on_slope = false
 script = ExtResource("6_ukqqt")
+inv = ExtResource("20_fol4f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(-1.05883, 0, -7.30458e-08, 0, 1.05883, 0, 9.25659e-08, -2.98023e-08, -0.835547, 0, 1, -3.8147e-06)
@@ -6361,6 +6364,8 @@ remote_path = NodePath("../../GUI/SubViewportContainer/Minimap_SubViewport/Minim
 [node name="CollisionShape3D" parent="Player/PlayerInteractor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 shape = SubResource("BoxShape3D_yebyy")
+
+[node name="Inv_UI" parent="Player" instance=ExtResource("25_a354b")]
 
 [node name="WestSign" parent="." groups=["Interactable"] instance=ExtResource("17_144h5")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -493.53, 119.1, -426.156)

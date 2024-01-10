@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=14 format=3 uid="uid://dfy62eb6bxcly"]
+
+[ext_resource type="Resource" uid="uid://b7e3gdtkrll3t" path="res://Inventory/Items/letter.tres" id="1_koex7"]
+[ext_resource type="Resource" uid="uid://7jnreybna0x5" path="res://Inventory/Items/shrimp.tres" id="1_opahr"]
+[ext_resource type="Script" path="res://Inventory/inventory.gd" id="2_cltt6"]
+[ext_resource type="Resource" uid="uid://ce107850p3jl3" path="res://Inventory/Items/fish.tres" id="2_lrthy"]
+[ext_resource type="Resource" uid="uid://s2bjkcuqam5t" path="res://Inventory/Items/healthPotion.tres" id="4_dofjv"]
+[ext_resource type="Resource" uid="uid://brld2ksmmciaw" path="res://Inventory/Items/water.tres" id="5_b6sg6"]
+[ext_resource type="Resource" uid="uid://bt5u5rs886ygs" path="res://Inventory/Items/bow.tres" id="6_cin61"]
+[ext_resource type="Resource" uid="uid://bkgotpcas5n7e" path="res://Inventory/Items/arrow.tres" id="7_x1jg8"]
+[ext_resource type="Resource" uid="uid://bigewbf1x8k7q" path="res://Inventory/Items/sword.tres" id="8_nf2w5"]
+[ext_resource type="Resource" uid="uid://c6aeaxauywuqr" path="res://Inventory/Items/axe.tres" id="9_lclcs"]
+[ext_resource type="Resource" uid="uid://ctrro8rcvd8js" path="res://Inventory/Items/lance.tres" id="10_qvkk7"]
+[ext_resource type="Resource" uid="uid://3tiqadn4snr2" path="res://Inventory/Items/octopus.tres" id="11_05lhq"]
+[ext_resource type="Resource" uid="uid://cvs2cxq0fsndq" path="res://Inventory/Items/silverKey.tres" id="12_5w7a2"]
+
+[resource]
+script = ExtResource("2_cltt6")
+items = Array[Resource("res://Inventory/inventory_item.gd")]([ExtResource("1_koex7"), ExtResource("1_opahr"), ExtResource("2_lrthy"), ExtResource("4_dofjv"), ExtResource("5_b6sg6"), ExtResource("6_cin61"), ExtResource("7_x1jg8"), ExtResource("8_nf2w5"), ExtResource("9_lclcs"), ExtResource("10_qvkk7"), ExtResource("11_05lhq"), ExtResource("12_5w7a2")])

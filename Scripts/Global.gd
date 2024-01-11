@@ -4,12 +4,13 @@ extends Node
 var chosenResolution = 3
 var chosenMode = 2
 var shadow = 1;
-var currentHp=10.0;
+#Player variables - nonscalabe should not be modified by equipment
+var currentHp=10.0; #nonscalable
 var maxHp=90.0;
 var regenPerSec= 0;
 var increasedLifeRecovery = 1.0;
-var regenPool=0.0;
-var currentStamina=60.0;
+var regenPool=0.0; #nonscalable
+var currentStamina=60.0; #nonscalable
 var maxStamina=60.0;
 var staminaRegenPerSec = 0.3;
 var increasedStaminaRecoveryRate=1.0;
@@ -18,6 +19,11 @@ var fireResistance=0.0;
 var lightningResistance=0.0;
 var coldResistance=0.0;
 var physicalResistance=0.0;
+var MinDmgPerAttack=2 
+var MaxDmgPerAttack=2
+var Strength = 6 # player gain +1 to min and +2 to max attack dmg per attack per 2 strength
+var Agility = 6 # player gain increased movement speed and stamina regeneration rate per agility
+var Endurance = 6 # player gain increased life, life regeneration and stamina regeneration per endurance 
 #Variables for sign positions
 #var NotWest = Main_map.get_tree().get_node("WestSign")
 var West = Vector3(-493.53,119.589,-426.156)

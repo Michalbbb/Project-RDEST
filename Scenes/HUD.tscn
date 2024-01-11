@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci38ni5k7uob7"]
+[gd_scene load_steps=17 format=3 uid="uid://ci38ni5k7uob7"]
 
 [ext_resource type="Script" path="res://Scenes/HUD.gd" id="1_mntu4"]
 [ext_resource type="Texture2D" uid="uid://dorf2ilir8tdk" path="res://Images/UnderBarST.png" id="2_e4gd5"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://buupmxrh6427v" path="res://Images/StatsImg.jpg" id="7_2bo5u"]
 [ext_resource type="Texture2D" uid="uid://dy2kayh8o3ltx" path="res://Images/QuestImgNH.jpg" id="7_ejhqb"]
 [ext_resource type="Texture2D" uid="uid://b8awk8awqos2r" path="res://Images/StatsImgNH.jpg" id="9_x4v3s"]
+[ext_resource type="Script" path="res://Scenes/EquipmentShow.gd" id="12_4i20o"]
+[ext_resource type="Texture2D" uid="uid://dmffo1xri4wsw" path="res://Inventory/Items/Rune1Holder.png" id="13_nfyyu"]
+[ext_resource type="Texture2D" uid="uid://g36ncod30gbg" path="res://Inventory/Items/Rune2Holder.png" id="14_s66h8"]
+[ext_resource type="Texture2D" uid="uid://crjj1wbr1j5xj" path="res://Inventory/Items/Rune3Holder.png" id="15_n0xxg"]
+[ext_resource type="Texture2D" uid="uid://1telkin1jahf" path="res://Inventory/Items/Rune4Holder.png" id="16_72dho"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mntu4")
@@ -101,6 +106,70 @@ offset_top = 194.0
 offset_right = 1732.0
 offset_bottom = 962.0
 texture = ExtResource("4_sg2hv")
+script = ExtResource("12_4i20o")
+
+[node name="BloodRuneSlot" type="TextureButton" parent="InventoryRect"]
+offset_left = 44.0
+offset_top = 181.0
+offset_right = 244.0
+offset_bottom = 295.0
+tooltip_text = "You don't have any Blood rune equipped."
+texture_normal = ExtResource("13_nfyyu")
+
+[node name="Label" type="Label" parent="InventoryRect"]
+layout_mode = 0
+offset_left = 587.0
+offset_top = -12.0
+offset_right = 1131.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 70
+text = "Runes
+"
+
+[node name="Label2" type="Label" parent="InventoryRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.015
+offset_left = 144.0
+offset_top = 104.0
+offset_right = 376.0
+offset_bottom = 178.48
+theme_override_font_sizes/font_size = 45
+text = "Equipped"
+
+[node name="HolyRuneSlot" type="TextureButton" parent="InventoryRect"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 181.0
+offset_right = 450.0
+offset_bottom = 295.0
+tooltip_text = "You don't have any Holy rune equipped."
+texture_normal = ExtResource("14_s66h8")
+
+[node name="MagicRuneSlot" type="TextureButton" parent="InventoryRect"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 299.0
+offset_right = 244.0
+offset_bottom = 413.0
+tooltip_text = "You don't have any Magic rune equipped."
+texture_normal = ExtResource("15_n0xxg")
+
+[node name="IronRuneSlot" type="TextureButton" parent="InventoryRect"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 299.0
+offset_right = 291.0
+offset_bottom = 339.0
+tooltip_text = "You don't have any Iron rune equipped."
+texture_normal = ExtResource("16_72dho")
+
+[node name="RuneHolder" type="GridContainer" parent="InventoryRect"]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 100.0
+offset_right = 1287.0
+offset_bottom = 729.0
 
 [node name="JournalRect" type="TextureRect" parent="."]
 visible = false

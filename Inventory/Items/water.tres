@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://brld2ksmmciaw"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_h3i1c"]
+[ext_resource type="Texture2D" uid="uid://duh03sqjodgbk" path="res://Textures/WaterPot.png" id="2_a2tgc"]
+
+[resource]
+script = ExtResource("1_h3i1c")
+name = "water"
+texture = ExtResource("2_a2tgc")
+edible = true

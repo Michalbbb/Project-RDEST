@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bp2gq8fd1omf2" path="res://Inventory/Inv_slot.tscn" id="3_ggbgi"]
 
 [node name="Inv_UI" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_wa787")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 914.0
 offset_top = 492.0
@@ -30,6 +32,7 @@ patch_margin_top = 8
 patch_margin_bottom = 8
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+visible = false
 layout_mode = 0
 offset_left = 5.0
 offset_top = 7.0

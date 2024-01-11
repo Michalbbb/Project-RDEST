@@ -109,6 +109,7 @@ texture = ExtResource("4_sg2hv")
 script = ExtResource("12_4i20o")
 
 [node name="BloodRuneSlot" type="TextureButton" parent="InventoryRect"]
+layout_mode = 0
 offset_left = 44.0
 offset_top = 181.0
 offset_right = 244.0

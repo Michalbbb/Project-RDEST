@@ -8,11 +8,11 @@ func _ready():
 	var animationPlayer= $RigidBody3D/CollisionShape3D/Slime2/AnimationPlayer2
 	animationPlayer.get_animation("walk")
 	animationPlayer.play("walk")
-	_setPosition()
-func _setPosition():
-	slime.position.x=-572
+	_setPosition(randi_range(-600,-200),randi_range(-600,-200))
+func _setPosition(x,z):
+	slime.position.x=x
 	slime.position.y=130
-	slime.position.z=-457
+	slime.position.z=z
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

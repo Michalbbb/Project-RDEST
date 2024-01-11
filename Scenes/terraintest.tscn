@@ -1,6 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://cqfunkhuihebh"]
+[gd_scene load_steps=59 format=3 uid="uid://cqfunkhuihebh"]
 
 [ext_resource type="Texture2D" uid="uid://buf87v0wdwpps" path="res://Images/handshake.png" id="1_7264j"]
+[ext_resource type="Script" path="res://Scenes/WorldEvents.gd" id="1_fxhds"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iya04"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="2_8yvtl"]
 [ext_resource type="Script" path="res://Scenes/SetDialog.gd" id="2_km4u4"]
@@ -24,6 +25,7 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="19_kews8"]
 [ext_resource type="Resource" uid="uid://dfy62eb6bxcly" path="res://Inventory/PlayerInv.tres" id="20_fol4f"]
 [ext_resource type="PackedScene" uid="uid://ci38ni5k7uob7" path="res://Scenes/HUD.tscn" id="20_w5has"]
+[ext_resource type="Script" path="res://Scenes/Log.gd" id="21_7d1xw"]
 [ext_resource type="PackedScene" uid="uid://bmmqxd6nvqthn" path="res://Systems/Interaction/PlayerInteractor.tscn" id="22_tscgu"]
 [ext_resource type="PackedScene" uid="uid://dbouamjoh4ewm" path="res://Characters/NPC/hooded_npc.tscn" id="23_jvmuk"]
 [ext_resource type="Script" path="res://Scenes/HoodedNpc.gd" id="23_meblh"]
@@ -56,7 +58,7 @@ sky_material = SubResource("PhysicalSkyMaterial_tbjrr")
 background_mode = 2
 sky = SubResource("Sky_figl5")
 
-[sub_resource type="Resource" id="Resource_fkcfx"]
+[sub_resource type="Resource" id="Resource_66q53"]
 script = ExtResource("13_bp1jq")
 amount = 15000
 enabled = true
@@ -65,7 +67,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_hgjuv"]
+[sub_resource type="Resource" id="Resource_w58lt"]
 script = ExtResource("14_a6a6m")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 0, 0)
@@ -76,7 +78,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_xjvw1"]
+[sub_resource type="Resource" id="Resource_1ip8d"]
 script = ExtResource("15_gmag0")
 iterations = 3
 offset_step = 0.2
@@ -88,7 +90,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_hdgpl"]
+[sub_resource type="Resource" id="Resource_anck3"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -104,7 +106,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_gaj31"]
+[sub_resource type="Resource" id="Resource_pr4m0"]
 script = ExtResource("16_5iypf")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 200.0
@@ -120,9 +122,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_wydmq"]
+[sub_resource type="Resource" id="Resource_0nsjy"]
 script = ExtResource("12_w6n0e")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_fkcfx"), SubResource("Resource_hgjuv"), SubResource("Resource_xjvw1"), SubResource("Resource_hdgpl"), SubResource("Resource_gaj31")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_66q53"), SubResource("Resource_w58lt"), SubResource("Resource_1ip8d"), SubResource("Resource_anck3"), SubResource("Resource_pr4m0")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("19_kews8")
@@ -6166,6 +6168,7 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_fxhds")
 
 [node name="DialogWindow" type="TextureRect" parent="."]
 visible = false
@@ -6229,7 +6232,7 @@ centered = true
 _terrain_data = ExtResource("2_8yvtl")
 chunk_size = 32
 collision_enabled = true
-collision_layer = 1
+collision_layer = 255
 collision_mask = 1
 shader_type = "Classic4Lite"
 custom_shader = null
@@ -6300,7 +6303,7 @@ texture = ExtResource("10_ad7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 353.704, -232.093)
 script = ExtResource("11_3a2h6")
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_wydmq")
+modifier_stack = SubResource("Resource_0nsjy")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -6322,6 +6325,18 @@ z_index = 1
 
 [node name="Node2D" parent="UI" instance=ExtResource("20_w5has")]
 position = Vector2(9, 4)
+
+[node name="Log" type="RichTextLabel" parent="UI"]
+offset_left = 2.0
+offset_top = 873.0
+offset_right = 567.0
+offset_bottom = 1083.0
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+scroll_following = true
+script = ExtResource("21_7d1xw")
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -572.262, 116.473, -417.046)
@@ -6403,6 +6418,94 @@ shape = SubResource("BoxShape3D_svk4q")
 shape = SubResource("BoxShape3D_tipok")
 
 [node name="HoodedNpc" parent="Hooded One/CollisionShape3D" instance=ExtResource("23_jvmuk")]
+
+[node name="Skeleton3D" parent="Hooded One/CollisionShape3D/HoodedNpc/rig" index="0"]
+bones/1/position = Vector3(-0.0206275, 0.0968595, 0.923937)
+bones/8/position = Vector3(0.294048, 0.0194783, 1.14374)
+bones/9/position = Vector3(-0.330498, 0.0241767, 1.15069)
+bones/10/position = Vector3(0.133462, 0.0533054, 0.453151)
+bones/11/position = Vector3(-0.148927, 0.0512642, 0.477209)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.0257267, -1.59251e-08, 1.2577e-08, 0.999669)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/position = Vector3(-2.12622e-08, 0.13706, -2.32831e-09)
+bones/33/scale = Vector3(1, 1, 1)
+bones/37/scale = Vector3(1, 1, 1)
+bones/38/rotation = Quaternion(-4.72646e-08, -1.04425e-07, -6.98492e-09, 1)
+bones/38/scale = Vector3(1, 1, 1)
+bones/40/rotation = Quaternion(0.985445, -0.0316319, 0.101575, 0.132593)
+bones/40/scale = Vector3(1, 1, 1)
+bones/41/scale = Vector3(1, 1, 1)
+bones/42/rotation = Quaternion(-0.537329, -0.0660918, -0.084465, 0.836525)
+bones/42/scale = Vector3(1, 1, 1)
+bones/43/position = Vector3(-8.30551e-09, 0.12636, -9.24956e-10)
+bones/47/scale = Vector3(1, 1, 1)
+bones/49/scale = Vector3(1, 1, 1)
+bones/51/scale = Vector3(1, 1, 1)
+bones/52/rotation = Quaternion(5.16884e-08, 6.67642e-08, -1.09954e-07, 1)
+bones/52/scale = Vector3(1, 1, 1)
+bones/63/rotation = Quaternion(-0.0108057, 0.00994323, 0.000107464, 0.999892)
+bones/63/scale = Vector3(1, 1, 1)
+bones/64/rotation = Quaternion(0.0257267, -2.40623e-08, 3.0278e-09, 0.999669)
+bones/64/scale = Vector3(1, 1, 1)
+bones/67/rotation = Quaternion(0.808108, -0.0351684, -0.576215, 0.117049)
+bones/67/scale = Vector3(1, 1, 1)
+bones/68/rotation = Quaternion(-6.8685e-09, -1.19326e-08, -3.1665e-08, 1)
+bones/70/rotation = Quaternion(-1.62981e-08, -1.4843e-09, 3.56231e-08, 1)
+bones/71/scale = Vector3(1, 1, 1)
+bones/72/scale = Vector3(1, 1, 1)
+bones/81/rotation = Quaternion(-0.692502, 0.101837, -0.0423654, 0.712934)
+bones/82/rotation = Quaternion(-0.0223021, -0.00424201, -9.46302e-05, 0.999742)
+bones/83/scale = Vector3(1, 1, 1)
+bones/84/rotation = Quaternion(0.985445, -0.031632, 0.101575, 0.132593)
+bones/86/rotation = Quaternion(0.985444, -0.0316318, 0.101576, 0.132593)
+bones/86/scale = Vector3(1, 1, 1)
+bones/87/rotation = Quaternion(-5.47152e-09, 4.65661e-10, -2.35741e-09, 1)
+bones/88/scale = Vector3(1, 1, 1)
+bones/89/rotation = Quaternion(1.44355e-08, 3.28291e-08, -2.70084e-08, 1)
+bones/90/rotation = Quaternion(-0.537329, -0.0660918, -0.0844652, 0.836526)
+bones/90/scale = Vector3(1, 1, 1)
+bones/91/scale = Vector3(1, 1, 1)
+bones/116/scale = Vector3(1, 1, 1)
+bones/117/rotation = Quaternion(0.0811468, 3.22369e-08, -1.68193e-08, 0.996702)
+bones/117/scale = Vector3(1, 1, 1)
+bones/118/rotation = Quaternion(-0.0598799, -0.00186366, -0.0310545, 0.997721)
+bones/118/scale = Vector3(1, 1, 1)
+bones/123/rotation = Quaternion(6.98492e-08, -0.000932869, -2.75672e-07, 1)
+bones/125/scale = Vector3(1, 1, 1)
+bones/126/rotation = Quaternion(3.72529e-09, 1.78814e-07, 5.02914e-08, 1)
+bones/136/rotation = Quaternion(-0.0321048, 0.0203038, 0.000652449, 0.999278)
+bones/136/scale = Vector3(1, 1, 1)
+bones/137/rotation = Quaternion(0.0811468, 5.13922e-08, 2.05569e-08, 0.996702)
+bones/140/scale = Vector3(1, 1, 1)
+bones/141/rotation = Quaternion(-5.21541e-08, -2.32831e-08, -8.00937e-08, 1)
+bones/142/rotation = Quaternion(0.0811467, 1.15399e-07, -1.49505e-08, 0.996702)
+bones/142/scale = Vector3(1, 1, 1)
+bones/143/rotation = Quaternion(8.10251e-08, -1.41561e-07, -1.2666e-07, 1)
+bones/144/rotation = Quaternion(-0.0598797, -0.00186352, -0.0310542, 0.997721)
+bones/144/scale = Vector3(1, 1, 1)
+bones/146/scale = Vector3(1, 1, 1)
+bones/147/scale = Vector3(1, 1, 1)
+bones/148/scale = Vector3(1, 1, 1)
+bones/153/rotation = Quaternion(-1.02446e-07, 0.00320883, 6.33303e-08, 0.999995)
+bones/153/scale = Vector3(1, 1, 1)
+bones/156/rotation = Quaternion(9.31323e-10, -1.30385e-07, -1.86265e-09, 1)
+bones/156/scale = Vector3(1, 1, 1)
+bones/166/rotation = Quaternion(-0.063447, -0.0419153, -0.00266708, 0.997101)
+bones/166/scale = Vector3(1, 1, 1)
+bones/167/scale = Vector3(1, 1, 1)
+bones/170/scale = Vector3(1, 1, 1)
+bones/171/rotation = Quaternion(1.67638e-08, -8.00937e-08, 1.86265e-09, 1)
+bones/172/rotation = Quaternion(0.152696, -1.59261e-07, -6.40814e-08, 0.988273)
+bones/172/scale = Vector3(1, 1, 1)
+bones/173/rotation = Quaternion(-2.42144e-08, -2.79397e-09, 2.98023e-08, 1)
+bones/174/scale = Vector3(1, 1, 1)
+bones/185/position = Vector3(0, -7.45058e-09, 0)
+bones/187/position = Vector3(0.602123, 1.16614, -0.478699)
+bones/192/position = Vector3(-0.659897, 1.19294, -0.460355)
+bones/206/position = Vector3(0.903866, 0.490288, 0.221282)
+bones/220/position = Vector3(-0.315421, 0.459441, 0.783319)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Hooded One/CollisionShape3D/HoodedNpc"]
 libraries = {

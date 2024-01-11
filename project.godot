@@ -104,3 +104,4 @@ inventory={
 [rendering]
 
 viewport/transparent_background=true
+mesh_lod/lod_change/threshold_pixels=0.0

@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://djln41b4k0ycd"]
+
+[ext_resource type="Texture2D" uid="uid://crruyae7x8nhp" path="res://Images/DeathScreenImage.png" id="1_4dn76"]
+[ext_resource type="Script" path="res://Scenes/death_screen.gd" id="1_yx5l3"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -6.0
+offset_right = -39.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yx5l3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 1.0
+offset_right = 2023.0
+offset_bottom = 1081.0
+texture = ExtResource("1_4dn76")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.044
+anchor_top = -0.03
+anchor_right = -0.044
+anchor_bottom = -0.03
+offset_left = 1010.12
+offset_top = 45.4
+offset_right = 1377.12
+offset_bottom = 155.4
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "You Died."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 919.0
+offset_top = 879.0
+offset_right = 1333.0
+offset_bottom = 996.0
+theme_override_font_sizes/font_size = 70
+text = "Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -23,12 +23,15 @@ var ground_level = [0,0];
 
 
 func _ready():
+	Global.targetForMonsters=player
+	Global.isPlayerReady=true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	HoodedNpcAnimation.get_animation("Waiting")
 	HoodedNpcAnimation.play("Waiting")
 	tipAboutInteraction.text="CHUJ MOZE DZIAŁAM"
 	tipAboutInteraction.visible=true
 	Global.isMouseCaptured=true
+	Global.resetGame()
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Global.isMouseCaptured:

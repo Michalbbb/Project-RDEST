@@ -37,6 +37,7 @@ func _on_option_a_pressed():
 	Global.isDialogOpen=false
 	if questInJourney[0] != "NULL" : 
 		HUD._addQuestToJourney(questInJourney,coords)
+		Global.addToLog("You accepted mission. Coordinates(x,z): "+str(int(coords.x))+","+str(int(coords.y))+")")
 		if fromWho=="HOODEDNPC":
 			Global.hoodedNpcTakenMissions+=1
 	dialog.hide()

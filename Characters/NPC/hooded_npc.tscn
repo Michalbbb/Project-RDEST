@@ -54,17 +54,8 @@ bones/174/rotation = Quaternion(-0.146055, 0.00638058, 0.0431754, 0.988313)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.701599, 0)
 shape = SubResource("BoxShape3D_8l7om")
 
-[node name="QuestWindow" type="Window" parent="." index="86"]
-transparent_bg = true
-title = "Quest"
-initial_position = 2
-size = Vector2i(500, 500)
-visible = false
-popup_window = true
-
 [connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
 [connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
-[connection signal="close_requested" from="QuestWindow" to="." method="_on_quest_window_close_requested"]
 
 [editable path="Interactable"]

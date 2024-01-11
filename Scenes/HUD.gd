@@ -39,6 +39,7 @@ func _process(delta):
 			Global.maxHp+=10
 			Global.maxStamina+=90
 			Global.regenPerSec+=1.0
+			Global.addToLog("Mission Completed.")
 
 
 

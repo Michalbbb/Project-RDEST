@@ -50,8 +50,8 @@ func resetGame():
 func dealDmgToPlayer(Physical,Fire,Lightning,Cold,True):
 	var physicalDmg=Physical*(1-physicalResistance/100)-reducedFlatDmg
 	var fireDmg=Fire*(1-fireResistance/100)-reducedFlatDmg
-	var lightningDmg=Lightning*(1-fireResistance/100)-reducedFlatDmg
-	var coldDmg=Cold*(1-fireResistance/100)-reducedFlatDmg
+	var lightningDmg=Lightning*(1-lightningResistance/100)-reducedFlatDmg
+	var coldDmg=Cold*(1-coldResistance/100)-reducedFlatDmg
 	var trueDmg=True-reducedFlatDmg
 	var sumDmg = physicalDmg+fireDmg+lightningDmg+coldDmg+trueDmg
 	currentHp-=physicalDmg

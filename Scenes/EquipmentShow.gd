@@ -32,6 +32,21 @@ func addRunes():
 	var runeType=2
 	var newRune=Rune.new(runeType,runeName,runeStats)
 	runes.append(newRune)
+	runeStats=[20,0.0,0.0,0.0,0.0,0.0,0.0,50,0.0,0.0,0.0,0.0,0.0,0.0,4]
+	runeName="Magic Rune"
+	runeType=3
+	var newRune2=Rune.new(runeType,runeName,runeStats)
+	runes.append(newRune2)
+	runeStats=[20,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,4]
+	runeName="Blood Rune"
+	runeType=1
+	var newRune3=Rune.new(runeType,runeName,runeStats)
+	runes.append(newRune3)
+	runeStats=[0.0,0.0,0.0,0.0,0.0,0.0,0.0,50,0.0,0.0,0.0,0.0,0.0,0.0,4]
+	runeName="Iron Rune"
+	runeType=4
+	var newRune4=Rune.new(runeType,runeName,runeStats)
+	runes.append(newRune4)
 func showRunes():
 	for i in container.get_children():
 		i.queue_free()
@@ -57,7 +72,7 @@ func showRunes():
 func changeBloodRune(newButton,index):
 	BloodSlot.texture_normal=newButton.texture_normal
 	BloodSlot.tooltip_text=newButton.tooltip_text
-	updateHolyRune(runes[index])
+	updateBloodRune(runes[index])
 func changeHolyRune(newButton,index):
 	HolySlot.texture_normal=newButton.texture_normal
 	HolySlot.tooltip_text=newButton.tooltip_text
@@ -65,12 +80,120 @@ func changeHolyRune(newButton,index):
 func changeMagicRune(newButton,index):
 	MagicSlot.texture_normal=newButton.texture_normal
 	MagicSlot.tooltip_text=newButton.tooltip_text
-	updateHolyRune(runes[index])
+	updateMagicRune(runes[index])
 func changeIronRune(newButton,index):
 	IronSlot.texture_normal=newButton.texture_normal
 	IronSlot.tooltip_text=newButton.tooltip_text
-	updateHolyRune(runes[index])
+	updateIronRune(runes[index])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func updateMagicRune(rune):
+	var stats=currentMagicRune.getStats()
+	Global.maxHp-=stats[0]
+	Global.regenPerSec-=stats[1]
+	Global.increasedLifeRecovery-=stats[2]
+	Global.maxStamina-=stats[3]
+	Global.staminaRegenPerSec -=stats[4]
+	Global.increasedStaminaRecoveryRate-=stats[5]
+	Global.reducedFlatDmg-=stats[6]
+	Global.fireResistance-=stats[7]
+	Global.lightningResistance-=stats[8]
+	Global.coldResistance-=stats[9]
+	Global.physicalResistance-=stats[10]
+	Global.MinDmgPerAttack -=stats[11]
+	Global.MaxDmgPerAttack-=stats[11]
+	Global.Strength -=stats[12]
+	Global.Agility -=stats[13]
+	Global.Endurance -=stats[14]
+	currentMagicRune=rune
+	stats=rune.getStats()
+	Global.maxHp+=stats[0]
+	Global.regenPerSec+=stats[1]
+	Global.increasedLifeRecovery+=stats[2]
+	Global.maxStamina+=stats[3]
+	Global.staminaRegenPerSec +=stats[4]
+	Global.increasedStaminaRecoveryRate+=stats[5]
+	Global.reducedFlatDmg+=stats[6]
+	Global.fireResistance+=stats[7]
+	Global.lightningResistance+=stats[8]
+	Global.coldResistance+=stats[9]
+	Global.physicalResistance+=stats[10]
+	Global.MinDmgPerAttack +=stats[11]
+	Global.MaxDmgPerAttack+=stats[11]
+	Global.Strength +=stats[12]
+	Global.Agility +=stats[13]
+	Global.Endurance +=stats[14]
+func updateIronRune(rune):
+	var stats=currentIronRune.getStats()
+	Global.maxHp-=stats[0]
+	Global.regenPerSec-=stats[1]
+	Global.increasedLifeRecovery-=stats[2]
+	Global.maxStamina-=stats[3]
+	Global.staminaRegenPerSec -=stats[4]
+	Global.increasedStaminaRecoveryRate-=stats[5]
+	Global.reducedFlatDmg-=stats[6]
+	Global.fireResistance-=stats[7]
+	Global.lightningResistance-=stats[8]
+	Global.coldResistance-=stats[9]
+	Global.physicalResistance-=stats[10]
+	Global.MinDmgPerAttack -=stats[11]
+	Global.MaxDmgPerAttack-=stats[11]
+	Global.Strength -=stats[12]
+	Global.Agility -=stats[13]
+	Global.Endurance -=stats[14]
+	currentIronRune=rune
+	stats=rune.getStats()
+	Global.maxHp+=stats[0]
+	Global.regenPerSec+=stats[1]
+	Global.increasedLifeRecovery+=stats[2]
+	Global.maxStamina+=stats[3]
+	Global.staminaRegenPerSec +=stats[4]
+	Global.increasedStaminaRecoveryRate+=stats[5]
+	Global.reducedFlatDmg+=stats[6]
+	Global.fireResistance+=stats[7]
+	Global.lightningResistance+=stats[8]
+	Global.coldResistance+=stats[9]
+	Global.physicalResistance+=stats[10]
+	Global.MinDmgPerAttack +=stats[11]
+	Global.MaxDmgPerAttack+=stats[11]
+	Global.Strength +=stats[12]
+	Global.Agility +=stats[13]
+	Global.Endurance +=stats[14]
+func updateBloodRune(rune):
+	var stats=currentBloodRune.getStats()
+	Global.maxHp-=stats[0]
+	Global.regenPerSec-=stats[1]
+	Global.increasedLifeRecovery-=stats[2]
+	Global.maxStamina-=stats[3]
+	Global.staminaRegenPerSec -=stats[4]
+	Global.increasedStaminaRecoveryRate-=stats[5]
+	Global.reducedFlatDmg-=stats[6]
+	Global.fireResistance-=stats[7]
+	Global.lightningResistance-=stats[8]
+	Global.coldResistance-=stats[9]
+	Global.physicalResistance-=stats[10]
+	Global.MinDmgPerAttack -=stats[11]
+	Global.MaxDmgPerAttack-=stats[11]
+	Global.Strength -=stats[12]
+	Global.Agility -=stats[13]
+	Global.Endurance -=stats[14]
+	currentBloodRune=rune
+	stats=rune.getStats()
+	Global.maxHp+=stats[0]
+	Global.regenPerSec+=stats[1]
+	Global.increasedLifeRecovery+=stats[2]
+	Global.maxStamina+=stats[3]
+	Global.staminaRegenPerSec +=stats[4]
+	Global.increasedStaminaRecoveryRate+=stats[5]
+	Global.reducedFlatDmg+=stats[6]
+	Global.fireResistance+=stats[7]
+	Global.lightningResistance+=stats[8]
+	Global.coldResistance+=stats[9]
+	Global.physicalResistance+=stats[10]
+	Global.MinDmgPerAttack +=stats[11]
+	Global.MaxDmgPerAttack+=stats[11]
+	Global.Strength +=stats[12]
+	Global.Agility +=stats[13]
+	Global.Endurance +=stats[14]
 func updateHolyRune(rune):
 	var stats=currentHolyRune.getStats()
 	Global.maxHp-=stats[0]
